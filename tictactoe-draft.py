@@ -110,22 +110,17 @@ def main():                                               #main
                 player_move_str = input(f"{Fore.GREEN}Player One - please make your move:{Style.RESET_ALL}")
                 try:
                     player_move = int(player_move_str)
+                    possible_moves.index(player_move)
+                    possible_moves.remove(player_move)
+                    player_one_moves.append(player_move)
                     isCorrect = True
                 except ValueError:
-                    print("This is not a number!")
+                    print("This is not a valid move!")
                     
-            try:                                                        #checking if move is valid
-                possible_moves.index(player_move)
-                possible_moves.remove(player_move)
-                player_one_moves.append(player_move)
-                print("\n")
-                board= printmove(player_move , board , char)
-                print("\n")
-            except:                                                     #if move not valid ask for input again
-                print("Move not possible")
-                badmove = 1
-            if badmove == 1:
-                continue
+            print("\n")
+            board= printmove(player_move , board , char)
+            print("\n")
+
             playeronethinking = False                                   #variables for switching players
             playertwothinking = True
             for x in range(0, 8):                                       #check for win condition
@@ -169,21 +164,16 @@ def main():                                               #main
                 player_move_str = input(f"{Fore.BLUE}Player Two - please make your move:{Style.RESET_ALL}")
                 try:
                     player_move = int(player_move_str)
+                    possible_moves.index(player_move)
+                    possible_moves.remove(player_move)
+                    player_two_moves.append(player_move)
                     isCorrect = True
                 except ValueError:
-                    print("This is not a number!")
-            try:                                                    #if move not valid ask for input again
-                possible_moves.index(player_move)
-                possible_moves.remove(player_move)
-                player_two_moves.append(player_move)
-                print("\n")
-                board= printmove(player_move , board , char)
-                print("\n")
-            except:
-                print("Move not possible")
-                badmove = 1
-            if badmove == 1:
-                continue
+                    print("This is not a valid move!")
+                    
+            print("\n")
+            board= printmove(player_move , board , char)
+            print("\n")
             playertwothinking = False
             playeronethinking = True
 
