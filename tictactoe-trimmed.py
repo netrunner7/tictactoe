@@ -179,9 +179,7 @@ def game_loop():
 
 def main():                                               #main
     intro()                                               #show intro and initial board
-    game_loop()
-###########################endgame stats and credits##################################
-    
+    game_loop()  
     
 main()
 
