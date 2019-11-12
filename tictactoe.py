@@ -57,14 +57,14 @@ __ __|_)      __ __|          __ __|
     time.sleep(2)
     print('''
     Possible moves: 1, 2, 3, 4, 5, 6, 7, 8, 9 ; try to fill a row!
-    |_|_|_|     =     1 | 2 | 3
-    |_|_|_|     =     4 | 5 | 6
-    |_|_|_|     =     7 | 8 | 9
+    |¹|²|³|     =     1 | 2 | 3
+    |⁴|⁵|⁶|     =     4 | 5 | 6
+    |⁷|⁸|⁹|     =     7 | 8 | 9
     ''')
 
 ########################################################endintro
 #declare variables
-    board = "|_|_|_|\n|_|_|_|\n|_|_|_|"
+    board = "|¹|²|³|\n|⁴|⁵|⁶|\n|⁷|⁸|⁹|"
     char = ""
     playeronethinking = True
     possible_moves = [1,2,3,4,5,6,7,8,9]
@@ -114,7 +114,7 @@ __ __|_)      __ __|          __ __|
                     if play_again == "y":
                         print("Starting new game")
                         possible_moves = [1,2,3,4,5,6,7,8,9]
-                        board = "|_|_|_|\n|_|_|_|\n|_|_|_|"
+                        board = "|¹|²|³|\n|⁴|⁵|⁶|\n|⁷|⁸|⁹|"
                         player_one_moves = []
                         player_two_moves = []
                         continue
@@ -127,7 +127,7 @@ __ __|_)      __ __|          __ __|
                 if play_again == "y":
                     print("Starting new game")
                     possible_moves = [1,2,3,4,5,6,7,8,9]
-                    board = "|_|_|_|\n|_|_|_|\n|_|_|_|"
+                    board = "|¹|²|³|\n|⁴|⁵|⁶|\n|⁷|⁸|⁹|"
                     player_one_moves = []
                     player_two_moves = []
                     continue
@@ -173,7 +173,7 @@ __ __|_)      __ __|          __ __|
                     if play_again == "y":
                         print("Starting new game")
                         possible_moves = [1,2,3,4,5,6,7,8,9]
-                        board = "|_|_|_|\n|_|_|_|\n|_|_|_|"
+                        board = "|¹|²|³|\n|⁴|⁵|⁶|\n|⁷|⁸|⁹|"
                         player_one_moves = []
                         player_two_moves = []
                         continue
@@ -186,7 +186,7 @@ __ __|_)      __ __|          __ __|
                 if play_again == "y":                       #play again?
                     print("Starting new game")
                     possible_moves = [1,2,3,4,5,6,7,8,9]
-                    board = "|_|_|_|\n|_|_|_|\n|_|_|_|"
+                    board = "|¹|²|³|\n|⁴|⁵|⁶|\n|⁷|⁸|⁹|"
                     player_one_moves = []
                     player_two_moves = []
                     continue
