@@ -36,6 +36,8 @@ def intro():
         ''')
 
 
+
+
 def printmove(player_move , board, char):    #print board and player move
     index = 0
     char = char
@@ -62,16 +64,16 @@ def printmove(player_move , board, char):    #print board and player move
     print(board)
     return board    
 
-def show_scores(player_one_wins, player_two_wins):
+def show_scores(player_one_wins, player_two_wins, name_first, name_second):
     os.system('clear')                                          
     if player_one_wins == 1:                                            #exception for one game won
-        print("Player One won:" , player_one_wins , "game.")
+        print(name_first, "won:" , player_one_wins , "game.")
     else:
-        print("Player One won:" , player_one_wins , "games.")
+        print(name_first, "won:" , player_one_wins , "games.")
     if player_two_wins == 1:                                            #exception for one game won
-        print("Player Two won:" , player_two_wins , "game.")
+        print(name_second, "won:" , player_two_wins , "game.")
     else:
-        print("Player Two won:" , player_two_wins , "games.")
+        print(name_second, "won:" , player_two_wins , "games.")
     print("\nThank you for playing! #rubberduck @ discord \n")
     print(f'''{Fore.YELLOW}
 __________     ___.  ___.                  ________                 __    
@@ -94,6 +96,8 @@ def game_loop():
     player_two_wins = 0   
     player_one_moves = []
     player_two_moves = [] 
+    player_one_name = input("Write first player name:")
+    player_two_name = input("Write second player name:")
     wining_moves = [[1 , 2 , 3] , [4 , 5 , 6] , [7 , 8 , 9] , [1 , 5 , 9] ,
                     [ 7, 5, 3] , [1 , 4 , 7] , [2 , 5 , 8] , [3 , 6 , 9]]
     current_player=1
@@ -110,9 +114,9 @@ def game_loop():
         isCorrect = False
         while isCorrect == False:
             if current_player==1:
-                player_move_str = input(f"{Fore.GREEN}Player One - please make your move:{Style.RESET_ALL}")
+                player_move_str = input(f"{Fore.GREEN}{player_one_name} - please make your move:{Style.RESET_ALL}")
             elif current_player==2:
-                player_move_str = input(f"{Fore.BLUE}Player Two - please make your move:{Style.RESET_ALL}")
+                player_move_str = input(f"{Fore.BLUE}{player_two_name} - please make your move:{Style.RESET_ALL}")
             try:
                 player_move = int(player_move_str)
                 possible_moves.index(player_move)
@@ -140,11 +144,11 @@ def game_loop():
             list_0=list(set(wining_moves[x]).intersection(set(player_one_moves)))
             list_1=list(set(wining_moves[x]).intersection(set(player_two_moves)))
             if len(list_0) == 3:
-                print("Player One Wins!")
+                print(player_one_name, "Wins!")
                 player_one_wins += 1
                 show_play_again = True
             elif len(list_1) == 3:
-                print("Player Two Wins!")
+                print(player_two_name, "Wins!")
                 player_two_wins += 1
                 show_play_again = True
 
@@ -174,7 +178,7 @@ def game_loop():
                 continue
             else:
                 endgame = True
-    show_scores(player_one_wins, player_two_wins)
+    show_scores(player_one_wins, player_two_wins, player_one_name, player_two_name)
 
 
 def main():                                               #main
@@ -184,4 +188,3 @@ def main():                                               #main
     
     
 main()
-
