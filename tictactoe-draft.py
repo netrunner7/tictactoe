@@ -189,16 +189,24 @@ def computer_move_calc(possible_moves, player_one_moves, player_two_moves, winin
     elif len(possible_moves) == 5:
         for x in range(0, 8): 
             list_0=list(set(wining_moves[x]).intersection(set(player_one_moves)))
+            
             if len(list_0)== 2:
-                # ai_third_move = (set(wining_moves[x])).difference(set(list_0))
                 ai_third_move = (set(wining_moves[x])) - (set(list_0))
-                print(ai_third_move)
                 ai_third_move_lst = list(ai_third_move)
-                if (ai_third_move_lst[0]) in [possible_moves]:
+                if ai_third_move_lst[0] in possible_moves:
                     comp_move = (ai_third_move_lst[0])
-                else
-                    print(blblbl)
-                # comp_move = (ai_third_move[0])
+        
+        for x in range(0, 8):
+            list_1=list(set(wining_moves[x]).intersection(set(player_two_moves)))
+            if len(list_1)== 2: 
+                ai_third_move2 = (set(wining_moves[x])) - (set(list_1))
+                ai_third_move_lst2 = list(ai_third_move2)
+                if ai_third_move_lst2[0] in possible_moves:
+                    comp_move = (ai_third_move_lst2[0])
+                else:
+                    comp_move = random.choice(possible_moves)
+            
+                # comp_move = (ai_third_move_lst[0])
 
             
             # list_1=list(set(wining_moves[x]).intersection(set(player_two_moves)))
