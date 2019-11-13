@@ -2,6 +2,7 @@
 #import
 import time
 import os
+import random
 from colorama import Fore
 from colorama import Style
 
@@ -179,7 +180,17 @@ def computer_move_calc(possible_moves, player_two_moves, wining_moves):
     comp_move = ""
     if len(possible_moves) == 9:
         comp_move = "5"
-
+    elif len(possible_moves) == 7:
+        corner = [1, 3, 7, 9]
+        comp_move = random.choice(corner)
+        if comp_move not in possible_moves:
+            corner.remove(comp_move)
+            comp_move = random.choice(corner)
+        
+            
+    
+    
+    
     return comp_move
 
 def single_game_loop():
@@ -209,8 +220,7 @@ def single_game_loop():
         isCorrect = False
         while isCorrect == False:
             if current_player==1:
-                computer_move_calc(possible_moves, player_two_moves, wining_moves)
-                player_move_str = computer_move_calc()
+                player_move_str = computer_move_calc(possible_moves, player_two_moves, wining_moves)
             elif current_player==2:
                 player_move_str = input(f"{Fore.BLUE}{player_two_name} - please make your move:{Style.RESET_ALL}")
             try:
