@@ -3,8 +3,8 @@
 import time
 import os
 import random
-# from colorama import Fore
-# from colorama import Style
+from colorama import Fore
+from colorama import Style
 
 
 def intro():
@@ -180,14 +180,37 @@ def game_loop():
 
 def computer_move_calc(possible_moves, player_one_moves, player_two_moves, wining_moves):
     comp_move = ""
+    corner = [1, 3, 7, 9]
     if len(possible_moves) == 9:
         comp_move = "5"
+    elif len(possible_moves) == 8:
+        comp_move = 5
+        if comp_move not in possible_moves:
+            comp_move = random.choice(corner)
     elif len(possible_moves) == 7:
-        corner = [1, 3, 7, 9]
         comp_move = random.choice(corner)
         if comp_move not in possible_moves:
             corner.remove(comp_move)
             comp_move = random.choice(corner)
+    elif len(possible_moves) == 6:
+        for x in range(0, 8):
+            list_1=list(set(wining_moves[x]).intersection(set(player_two_moves)))
+            if len(list_1)== 2: 
+                ai_third_move2 = (set(wining_moves[x])) - (set(list_1))
+                ai_third_move_lst2 = list(ai_third_move2)
+                if ai_third_move_lst2[0] in possible_moves:
+                    comp_move = (ai_third_move_lst2[0])
+                    break
+            else:
+                comp_move = random.choice(possible_moves)
+        for x in range(0, 8): 
+            list_0=list(set(wining_moves[x]).intersection(set(player_one_moves)))
+            
+            if len(list_0)== 2:
+                ai_third_move = (set(wining_moves[x])) - (set(list_0))
+                ai_third_move_lst = list(ai_third_move)
+                if ai_third_move_lst[0] in possible_moves:
+                    comp_move = (ai_third_move_lst[0])
     elif len(possible_moves) == 5:
         for x in range(0, 8):
             list_1=list(set(wining_moves[x]).intersection(set(player_two_moves)))
@@ -210,6 +233,26 @@ def computer_move_calc(possible_moves, player_one_moves, player_two_moves, winin
             # else:
             #     comp_move = random.choice(possible_moves)
 
+    elif len(possible_moves) == 4:
+        for x in range(0, 8):
+            list_1=list(set(wining_moves[x]).intersection(set(player_two_moves)))
+            if len(list_1)== 2: 
+                ai_third_move2 = (set(wining_moves[x])) - (set(list_1))
+                ai_third_move_lst2 = list(ai_third_move2)
+                if ai_third_move_lst2[0] in possible_moves:
+                    comp_move = (ai_third_move_lst2[0])
+                    break
+            else:
+                comp_move = random.choice(possible_moves)
+        for x in range(0, 8): 
+            list_0=list(set(wining_moves[x]).intersection(set(player_one_moves)))
+            
+            if len(list_0)== 2:
+                ai_third_move = (set(wining_moves[x])) - (set(list_0))
+                ai_third_move_lst = list(ai_third_move)
+                if ai_third_move_lst[0] in possible_moves:
+                    comp_move = (ai_third_move_lst[0])
+
     elif len(possible_moves) == 3:
         for x in range(0, 8):
             list_1=list(set(wining_moves[x]).intersection(set(player_two_moves)))
@@ -230,7 +273,26 @@ def computer_move_calc(possible_moves, player_one_moves, player_two_moves, winin
                 ai_third_move_lst = list(ai_third_move)
                 if ai_third_move_lst[0] in possible_moves:
                     comp_move = (ai_third_move_lst[0])
-        
+                    
+    elif len(possible_moves) == 2:
+        for x in range(0, 8):
+            list_1=list(set(wining_moves[x]).intersection(set(player_two_moves)))
+            if len(list_1)== 2: 
+                ai_third_move2 = (set(wining_moves[x])) - (set(list_1))
+                ai_third_move_lst2 = list(ai_third_move2)
+                if ai_third_move_lst2[0] in possible_moves:
+                    comp_move = (ai_third_move_lst2[0])
+                    break
+            else:
+                comp_move = random.choice(possible_moves)
+        for x in range(0, 8): 
+            list_0=list(set(wining_moves[x]).intersection(set(player_one_moves)))
+            
+            if len(list_0)== 2:
+                ai_third_move = (set(wining_moves[x])) - (set(list_0))
+                ai_third_move_lst = list(ai_third_move)
+                if ai_third_move_lst[0] in possible_moves:
+                    comp_move = (ai_third_move_lst[0])
         
 
     elif len(possible_moves) == 1:
