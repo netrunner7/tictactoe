@@ -176,7 +176,7 @@ def game_loop():
     #             endgame = True
     # show_scores(player_one_wins, player_two_wins, player_one_name, player_two_name)
 
-def computer_move_calc(possible_moves, player_two_moves, wining_moves):
+def computer_move_calc(possible_moves, player_one_moves, player_two_moves, wining_moves):
     comp_move = ""
     if len(possible_moves) == 9:
         comp_move = "5"
@@ -186,9 +186,23 @@ def computer_move_calc(possible_moves, player_two_moves, wining_moves):
         if comp_move not in possible_moves:
             corner.remove(comp_move)
             comp_move = random.choice(corner)
-        
+    elif len(possible_moves) == 5:
+        for x in range(0, 8): 
+            list_0=list(set(wining_moves[x]).intersection(set(player_one_moves)))
+            if len(list_0)== 2:
+                # ai_third_move = (set(wining_moves[x])).difference(set(list_0))
+                ai_third_move = (set(wining_moves[x])) - (set(list_0))
+                print(ai_third_move)
+                ai_third_move_lst = list(ai_third_move)
+                if (ai_third_move_lst[0]) in [possible_moves]:
+                    comp_move = (ai_third_move_lst[0])
+                else
+                    print(blblbl)
+                # comp_move = (ai_third_move[0])
+
             
-    
+            # list_1=list(set(wining_moves[x]).intersection(set(player_two_moves)))
+        
     
     
     return comp_move
@@ -220,7 +234,7 @@ def single_game_loop():
         isCorrect = False
         while isCorrect == False:
             if current_player==1:
-                player_move_str = computer_move_calc(possible_moves, player_two_moves, wining_moves)
+                player_move_str = computer_move_calc(possible_moves, player_one_moves, player_two_moves, wining_moves)
             elif current_player==2:
                 player_move_str = input(f"{Fore.BLUE}{player_two_name} - please make your move:{Style.RESET_ALL}")
             try:
