@@ -98,8 +98,8 @@ def game_loop():
     player_two_wins = 0   
     player_one_moves = []
     player_two_moves = [] 
-    player_one_name = input("Write first player name: ")
-    player_two_name = input("Write second player name: ")
+    player_one_name = input("Write first player name: ").title()
+    player_two_name = input("Write second player name: ").title()
     wining_moves = [[1 , 2 , 3] , [4 , 5 , 6] , [7 , 8 , 9] , [1 , 5 , 9] ,
                     [ 7, 5, 3] , [1 , 4 , 7] , [2 , 5 , 8] , [3 , 6 , 9]]
     current_player=1
