@@ -121,17 +121,17 @@ def game_loop():
             if current_player==1 and player_one_name =="Skynet":
                 player_move_str = computer_move_calc(possible_moves, player_one_moves, player_two_moves, wining_moves)
                 time.sleep(1)
-                playsound("https://opengameart.org/sites/default/files/click.wav")
+                playsound("/home/lukaszlwo/Dokumenty/git_tictactoe/tictactoe/click.wav")
             elif current_player == 1 and player_one_name == "Skynet0.1":
                 player_move_str = random.choice(possible_moves)
                 time.sleep(1)
-                playsound("https://opengameart.org/sites/default/files/click.wav")
+                playsound("/home/lukaszlwo/Dokumenty/git_tictactoe/tictactoe/click.wav")
             elif current_player==1:
                 player_move_str = input(f"{Fore.GREEN}{player_one_name} - please make your move:{Style.RESET_ALL}")
-                playsound("https://opengameart.org/sites/default/files/click.wav")
+                playsound("/home/lukaszlwo/Dokumenty/git_tictactoe/tictactoe/click.wav")
             elif current_player==2:
                 player_move_str = input(f"{Fore.BLUE}{player_two_name} - please make your move:{Style.RESET_ALL}")
-                playsound("https://opengameart.org/sites/default/files/click.wav")
+                playsound("/home/lukaszlwo/Dokumenty/git_tictactoe/tictactoe/click.wav")
             try:
                 player_move = int(player_move_str)
                 possible_moves.index(player_move)
@@ -198,8 +198,9 @@ def game_loop():
 def computer_move_calc(possible_moves, player_one_moves, player_two_moves, wining_moves):
     comp_move = ""
     corner = [1, 3, 7, 9]
+    first_step = [1, 3, 5, 7, 9]
     if len(possible_moves) == 9:
-        comp_move = "5"
+        comp_move = random.choice(first_step)
     
     elif len(possible_moves) == 8:
         comp_move = 5
