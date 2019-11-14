@@ -18,10 +18,10 @@ def intro():
      |____|_  /____/|___  /___  /\___  >__|    /_______  /____/  \___  >__|_  |
             \/          \/    \/     \/                \/            \/     \/
         {Style.RESET_ALL}''')
-        time.sleep(2)                 #finalnie 2 sekundy
+        time.sleep(1)                 #finalnie 2 sekundy
         os.system('clear')
         print("Presents:")
-        time.sleep(2)
+        time.sleep(1)
         os.system('clear')
         print('''
     __ __|_)      __ __|          __ __|          
@@ -29,14 +29,17 @@ def intro():
        |   | (       | (   | (       | (   |  __/ 
       _|  _|\___|   _|\__,_|\___|   _|\___/ \___|   
         ''')
-        time.sleep(2)
+        time.sleep(1)
         print('''
         Possible moves: 1, 2, 3, 4, 5, 6, 7, 8, 9 ; try to fill a row!
         |¹|²|³|     =     1 | 2 | 3
         |⁴|⁵|⁶|     =     4 | 5 | 6
         |⁷|⁸|⁹|     =     7 | 8 | 9
 
-        If you want to play with a computer, enter "Computer" as the first player
+        If you want to play with a computer, enter 
+        "Skynet" - hard level
+        "Skynet0.1 - easy level
+         as the first player
 
         ''')
 
@@ -90,8 +93,8 @@ def game_loop():
     player_two_wins = 0   
     player_one_moves = []
     player_two_moves = [] 
-    player_one_name = input("Write first player name: ").title()
-    player_two_name = input("Write second player name: ").title()
+    player_one_name = input("Write first player name: ")
+    player_two_name = input("Write second player name: ")
     wining_moves = [[1 , 2 , 3] , [4 , 5 , 6] , [7 , 8 , 9] , [1 , 5 , 9] ,
                     [ 7, 5, 3] , [1 , 4 , 7] , [2 , 5 , 8] , [3 , 6 , 9]]
     current_player=1
@@ -112,13 +115,20 @@ def game_loop():
             print(board)
             print("\n")
         while isCorrect == False:
-            if current_player==1 and player_one_name =="Computer":
+            if current_player==1 and player_one_name =="Skynet":
                 player_move_str = computer_move_calc(possible_moves, player_one_moves, player_two_moves, wining_moves)
                 time.sleep(1)
+                playsound("https://opengameart.org/sites/default/files/click.wav")
+            elif current_player == 1 and player_one_name == "Skynet0.1":
+                player_move_str = random.choice(possible_moves)
+                time.sleep(1)
+                playsound("https://opengameart.org/sites/default/files/click.wav")
             elif current_player==1:
                 player_move_str = input(f"{Fore.GREEN}{player_one_name} - please make your move:{Style.RESET_ALL}")
+                playsound("https://opengameart.org/sites/default/files/click.wav")
             elif current_player==2:
                 player_move_str = input(f"{Fore.BLUE}{player_two_name} - please make your move:{Style.RESET_ALL}")
+                playsound("https://opengameart.org/sites/default/files/click.wav")
             try:
                 player_move = int(player_move_str)
                 possible_moves.index(player_move)
@@ -134,7 +144,6 @@ def game_loop():
         os.system('clear')
         print("\n")
         board= printmove(player_move , board , char)
-        playsound('/home/grzegorz/Documents/codecool/tictactoe/click.wav')
         print("\n")
         
 
