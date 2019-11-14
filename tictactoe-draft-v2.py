@@ -40,6 +40,7 @@ def intro():
 
 
 def printmove(player_move , board, char):    #print board and player move
+    
     if player_move == 1:
         index = 1
     if player_move == 2:
@@ -60,6 +61,7 @@ def printmove(player_move , board, char):    #print board and player move
         index = 21
     board = board[0:index] + char + board[index + 1:]
     print(board)
+    time.sleep(1)
     return board    
 
 def show_scores(player_one_wins, player_two_wins, name_first, name_second):
