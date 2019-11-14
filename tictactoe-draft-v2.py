@@ -8,6 +8,7 @@ from colorama import Style
 
 def intro():
     ##################################### Intro #################################
+        os.system('clear')
         print(f'''{Fore.YELLOW}
     __________     ___.  ___.                  ________                 __    
     \______   \__ _\_ |__\_ |__   ___________  \______ \  __ __   ____ |  | __
@@ -33,8 +34,10 @@ def intro():
         |¹|²|³|     =     1 | 2 | 3
         |⁴|⁵|⁶|     =     4 | 5 | 6
         |⁷|⁸|⁹|     =     7 | 8 | 9
-        ''')
 
+        If you want to play with a computer, enter "Computer" as the first player
+
+        ''')
 
 
 
@@ -95,8 +98,8 @@ def game_loop():
     player_two_wins = 0   
     player_one_moves = []
     player_two_moves = [] 
-    player_one_name = input("Write first player name:")
-    player_two_name = input("Write second player name:")
+    player_one_name = input("Write first player name: ")
+    player_two_name = input("Write second player name: ")
     wining_moves = [[1 , 2 , 3] , [4 , 5 , 6] , [7 , 8 , 9] , [1 , 5 , 9] ,
                     [ 7, 5, 3] , [1 , 4 , 7] , [2 , 5 , 8] , [3 , 6 , 9]]
     current_player=1
