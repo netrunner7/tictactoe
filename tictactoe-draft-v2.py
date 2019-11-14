@@ -8,26 +8,26 @@ from colorama import Style
 
 def intro():
     ##################################### Intro #################################
-    #     print(f'''{Fore.YELLOW}
-    # __________     ___.  ___.                  ________                 __    
-    # \______   \__ _\_ |__\_ |__   ___________  \______ \  __ __   ____ |  | __
-    #  |       _/  |  \ __ \| __ \_/ __ \_  __ \  |    |  \|  |  \_/ ___\|  |/ /
-    #  |    |   \  |  / \_\ \ \_\ \  ___/|  | \/  |    `   \  |  /\  \___|    < 
-    #  |____|_  /____/|___  /___  /\___  >__|    /_______  /____/  \___  >__|_  |
-    #         \/          \/    \/     \/                \/            \/     \/
-    #     {Style.RESET_ALL}''')
-    #     time.sleep(2)                 #finalnie 2 sekundy
-    #     os.system('clear')
-    #     print("Presents:")
-    #     time.sleep(2)
-    #     os.system('clear')
-    #     print('''
-    # __ __|_)      __ __|          __ __|          
-    #    |   |  __|    |  _` |  __|    |  _ \   _ \ 
-    #    |   | (       | (   | (       | (   |  __/ 
-    #   _|  _|\___|   _|\__,_|\___|   _|\___/ \___|   
-    #     ''')
-    #     time.sleep(2)
+        print(f'''{Fore.YELLOW}
+    __________     ___.  ___.                  ________                 __    
+    \______   \__ _\_ |__\_ |__   ___________  \______ \  __ __   ____ |  | __
+     |       _/  |  \ __ \| __ \_/ __ \_  __ \  |    |  \|  |  \_/ ___\|  |/ /
+     |    |   \  |  / \_\ \ \_\ \  ___/|  | \/  |    `   \  |  /\  \___|    < 
+     |____|_  /____/|___  /___  /\___  >__|    /_______  /____/  \___  >__|_  |
+            \/          \/    \/     \/                \/            \/     \/
+        {Style.RESET_ALL}''')
+        time.sleep(2)                 #finalnie 2 sekundy
+        os.system('clear')
+        print("Presents:")
+        time.sleep(2)
+        os.system('clear')
+        print('''
+    __ __|_)      __ __|          __ __|          
+       |   |  __|    |  _` |  __|    |  _ \   _ \ 
+       |   | (       | (   | (       | (   |  __/ 
+      _|  _|\___|   _|\__,_|\___|   _|\___/ \___|   
+        ''')
+        time.sleep(2)
         print('''
         Possible moves: 1, 2, 3, 4, 5, 6, 7, 8, 9 ; try to fill a row!
         |¹|²|³|     =     1 | 2 | 3
@@ -119,6 +119,7 @@ def game_loop():
         while isCorrect == False:
             if current_player==1 and player_one_name =="Computer":
                 player_move_str = computer_move_calc(possible_moves, player_one_moves, player_two_moves, wining_moves)
+                time.sleep(1)
             elif current_player==1:
                 player_move_str = input(f"{Fore.GREEN}{player_one_name} - please make your move:{Style.RESET_ALL}")
             elif current_player==2:
@@ -140,8 +141,6 @@ def game_loop():
         board= printmove(player_move , board , char)
         print("\n")
         
-        
-            # time.sleep(0.5)
 
         if current_player==1:
             current_player=2
@@ -237,7 +236,6 @@ def computer_move_calc(possible_moves, player_one_moves, player_two_moves, winin
 def main():                                               #main
     intro()                                               #show intro and initial board
     game_loop()
-    # single_game_loop()
 ###########################endgame stats and credits##################################
     
     
