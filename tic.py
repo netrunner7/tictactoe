@@ -21,7 +21,7 @@ def intro():
           |___/ 
 
         {Style.RESET_ALL}''')
-        time.sleep(1)                 #finalnie 2 sekundy
+        time.sleep(1)                 #delay 1 sec.
         os.system('clear')
         print("Presents:")
         time.sleep(1)
@@ -33,6 +33,7 @@ def intro():
       _|  _|\___|   _|\__,_|\___|   _|\___/ \___|   
         ''')
         time.sleep(1)
+        ############################manual############################33
         print('''
         Possible moves: 1, 2, 3, 4, 5, 6, 7, 8, 9 ; try to fill a row!
         |¹|²|³|     =     1 | 2 | 3
@@ -50,7 +51,7 @@ def intro():
 
 def printmove(player_move , board, char):    #print board and player move
     
-    if player_move == 1:
+    if player_move == 1:                     #assing correct board string to replace with player move
         index = 1
     if player_move == 2:
         index = 3
@@ -73,6 +74,7 @@ def printmove(player_move , board, char):    #print board and player move
 
     return board    
 
+####################endgame show scores#######################33
 def show_scores(player_one_wins, player_two_wins, name_first, name_second):
     os.system('clear')                                          
     if player_one_wins == 1:                                            #exception for one game won
@@ -85,12 +87,13 @@ def show_scores(player_one_wins, player_two_wins, name_first, name_second):
         print(name_second, "won:" , player_two_wins , "games.")
     print("\nThank you for playing! #skynet01 @ discord \n")
 
+
+############### main game loop#######################
 def game_loop():
 
-        #declare variables
+    #declare variables
     board = "|¹|²|³|\n|⁴|⁵|⁶|\n|⁷|⁸|⁹|"
     char = ""
-    # playeronethinking = True
     possible_moves = [1,2,3,4,5,6,7,8,9]
     player_one_wins = 0
     player_two_wins = 0   
@@ -154,7 +157,7 @@ def game_loop():
             current_player=2
         elif current_player==2:
             current_player=1
-
+        ###################Check for win and tie##############################
         for x in range(0, 8):                                       #check for win condition
             list_0=list(set(wining_moves[x]).intersection(set(player_one_moves)))
             list_1=list(set(wining_moves[x]).intersection(set(player_two_moves)))
@@ -193,14 +196,16 @@ def game_loop():
                 continue
             else:
                 endgame = True
-    show_scores(player_one_wins, player_two_wins, player_one_name, player_two_name)
+    show_scores(player_one_wins, player_two_wins, player_one_name, player_two_name)    #show scores and credits
 
+
+###################AI###################
 def computer_move_calc(possible_moves, player_one_moves, player_two_moves, wining_moves):
     comp_move = ""
     corner = [1, 3, 7, 9]
     first_step = [1, 3, 5, 7, 9]
     if len(possible_moves) == 9:
-        comp_move = random.choice(first_step)
+        comp_move = 5
     
     elif len(possible_moves) == 8:
         comp_move = 5
@@ -236,9 +241,6 @@ def computer_move_calc(possible_moves, player_one_moves, player_two_moves, winin
     elif len(possible_moves) == 1:
         comp_move = possible_moves[0]
 
-        
-    
-    
     return comp_move
 
 
