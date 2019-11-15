@@ -226,6 +226,7 @@ def computer_move_calc(possible_moves, player_one_moves, player_two_moves, winin
     comp_move = ""
     corner = [1, 3, 7, 9]
     first_step = [1, 3, 5, 7, 9]
+    side = [2, 4, 6, 8]
     if len(possible_moves) == 9:
         comp_move = 5
         if comp_move not in possible_moves:
@@ -262,6 +263,11 @@ def computer_move_calc(possible_moves, player_one_moves, player_two_moves, winin
                         if ai_third_move_lst2[0] in possible_moves and len(checki) == 4:
                             comp_move = random.choice(checki_lst)
                             break
+                thirdchecki = (set(side) - set(possible_moves))
+                thirdchecki_lst = list(thirdchecki)
+                if len(thirdchecki_lst) == 0:
+                    comp_move = random.choice(side)    
+                
         for x in range(0, 8): 
             list_0=list(set(wining_moves[x]).intersection(set(player_two_moves)))
             
